@@ -1,0 +1,166 @@
+
+<div class="TitleDiv">
+    <h1 class="text-center font-weight-bold">Reclutamiento y selección de personal</h1>
+    <h2 class="text-center font-weight-bold">Bloque 1 de 9</h2>
+</div>
+
+<div class="contenido">    
+    <div class="row ">
+            <div class="col-12 div-preguntas" id="P1">
+
+                <div hidden class="Error" id="p1"> ! </div>
+                <div class="div-header">Pregunta 1</div>
+
+                <hr>        
+
+                <div class="div-body">
+                    <p>
+                        Para su contratación fue más importante ser mujer u hombre que sus habilidades profesionales.
+                    </p>    
+                    <label class="container">Sí
+                        <input class="form-check-input" type="radio" value="0" name="P1">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">No
+                        <input class="form-check-input" type="radio" value="3" name="P1">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+            </div>
+
+            <div class="col-12 div-preguntas" id="P2">
+
+                <div hidden class="Error" id="p2"> ! </div>
+                <div class="div-header">Pregunta 2</div>
+
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo el proceso de contratación favorece más a personas jóvenes.
+                    </p>
+
+                    <label class="container">Sí
+                        <input class="form-check-input" type="radio" value="0" name="P2">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">No
+                        <input class="form-check-input" type="radio" value="3" name="P2">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+            </div>
+    </div>
+
+    <br>
+
+    <div class="row ">
+            <div class="col-12 div-preguntas" id="P3">
+
+                <div hidden class="Error" id="p3"> ! </div>
+                <div class="div-header">Pregunta 3</div> 
+
+                <hr> 
+                
+                <div class="div-body">
+                    <p>
+                        En el momento de su contratación, su edad fue determinante.
+                    </p>
+
+                    <label class="container">Sí
+                    <input class="form-check-input" type="radio" value="0" name="P3">
+                    <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">No
+                    <input class="form-check-input" type="radio" value="3" name="P3">
+                    <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+            
+            <div class="col-12 div-preguntas" id="P4">
+
+                <div hidden class="Error" id="p4"> ! </div>
+                <div class="div-header">Pregunta 4</div> 
+                
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        Para su contratación fue determinante su apariencia física.
+                    </p>  
+
+                    <label class="container">Sí
+                        <input class="form-check-input" type="radio" value="0" name="P4">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">No
+                        <input class="form-check-input" type="radio" value="3" name="P4">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+    </div>
+    
+</div>
+
+<div id="Actualizar"></div>
+<!-- <button hidden type="button" class="btn btn-dark m-4" id="Actualizar1" onclick="revisar()">Actualizar </button> -->
+<button type="button" class="btn btn-success float-right m-4" onclick="revisar()">Siguiente </button>
+
+<script>
+  
+    $(document).ready(function () {
+        $('.Error').hover( function(){
+            $(this).html("Escoge una opción");
+        },
+        function(){
+            $(this).html("!");
+        });
+    
+    });
+
+    </script>
+
+<script>
+
+function revisar(){
+
+    contador = 0;
+
+    p1 = error('P1','#p1');
+    if(p1 != null){
+        contador++;
+    }
+    // console.log('resultado de r = '+error('P1','#p1')+' contador = '+contador);
+    p2 = error('P2','#p2');
+    if(p2 != null){
+        contador++;
+    }
+    // console.log('resultado de r = '+error('P2','#p2')+' contador = '+contador);
+    p3 = error('P3','#p3');
+    if(p3 != null){
+        contador++;
+    }
+    // console.log('resultado de r = '+error('P3','#p3')+' contador = '+contador);
+    p4 = error('P4','#p4');
+    if(p4 != null){
+        contador++;
+    }
+    // console.log('resultado de r = '+error('P4','#p4')+' contador = '+contador);
+
+    if(contador == 4){
+        Bloque1 = [parseInt(p1) , parseInt(p2) , parseInt(p3) , parseInt(p4)];
+        //alert(p1+' '+p2+' '+p3+' '+p4);
+        menu(2);
+    }else{ alert("Faltan preguntas por contestar"); window.scrollTo(0, 260); }
+}
+</script>

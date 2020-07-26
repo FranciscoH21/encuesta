@@ -1,0 +1,201 @@
+<div class="TitleDiv">
+    <h1 class="text-center">Condiciones generales de trabajo</h1>
+    <h2 class="text-center">Bloque 9 de 9</h2>
+</div>
+<div class="contenido">    
+    <div class="row ">
+            <div class="col-12" id="P53">
+
+                <div hidden class="Error" id="p53"> ! </div>
+                <div class="div-header">Pregunta 53</div>
+                <hr>
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo se proporcionan las prestaciones de ley.
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P53">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P53">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P53">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P53">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>  
+
+
+            </div>
+
+            <div class="col-12" id="P54">
+
+                <div hidden class="Error" id="p54"> ! </div>
+                <div class="div-header">Pregunta 54</div>
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo las y los directivos apoyan la igualdad y no discriminación
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P54">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P54">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P54">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P54">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>          
+
+
+            </div>
+    </div>
+
+    <br>
+
+    <div class="row ">
+            <div class="col-12" id="P55">
+
+                <div hidden class="Error" id="p55"> ! </div>
+                <div class="div-header">Pregunta 55</div>
+                <hr>
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo los mecanismos utilizados para asegurar la igualdad y no discriminación son eficaces.
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P55">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P55">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P55">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P55">
+                        <span class="checkmark"></span>
+                    </label>
+                </div> 
+                
+
+            </div>
+            
+            <div class="col-12" id="P56">
+
+                <div hidden class="Error" id="p56"> ! </div>
+                <div class="div-header">Pregunta 56</div>
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo se recibe un salario igual por igual trabajo sin importar sexo, apariencia, edad u otras características personales.
+                    </p>    
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P56">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P56">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P56">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P56">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+
+            </div>
+    </div>
+
+</div>
+
+<button type="button" class="btn btn-success float-right m-4" onclick="revisar()">Siguiente </button>
+
+<script>
+
+$(document).ready(function () {
+    $('.Error').hover( function(){
+        $(this).html("Escoge una opción");
+    },
+    function(){
+        $(this).html("!");
+    });
+
+});
+
+    // mostras("MenuBloque8");
+    // console.log("Bloque8 = "+Bloque8[0]+" , "+Bloque8[1]);
+
+function revisar(){
+    
+    contador = 0;
+
+    p53 = error('P53','#p53');
+    if(p53 != null){
+        contador++;
+    }
+
+    p54 = error('P54','#p54');
+    if(p54 != null){
+        contador++;
+    }
+
+    p55 = error('P55','#p55');
+    if(p55 != null){
+        contador++;
+    }
+
+    p56 = error('P56','#p56');
+    if(p56 != null){
+        contador++;
+    }
+
+    if(contador == 4){
+        Bloque9 = [parseInt(p53) , parseInt(p54) , parseInt(p55) , parseInt(p56)];
+        //alert(p53+' '+p54+' '+p55+' '+p56);
+        menu(10);
+    }else{ alert("Faltan preguntas por contestar"); window.scrollTo(0, 260); }
+}
+</script>

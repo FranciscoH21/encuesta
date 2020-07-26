@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="../encuesta/Estadisticas/Login/Login.css">
+
+<div class="align-self-start">
+    <button class="btn btn-primary" onclick="regresarInicio()">Inicio</button>
+</div>
+
+<div class="login">
+
+    <!-- <img class="login-loading" src="../encuesta/image/gear-animation-orange.gif"> -->
+
+    <div class="login-div">
+        <img class="login-img" src="../encuesta/image/SGIG-logo.png">
+    </div>
+    
+    <div class="login-div">
+        <h1 class="text-center" >Modo Administrador</h1>
+    </div>
+
+    <div hidden id="msj-error" class="error-login form-control text-center">
+        Usuario o contraseña incorrecto
+    </div>
+    
+    <form id="formlogin">
+        <div class="login-div">
+            <label for="usuario" class="login-label">Usuario:</label>
+            <input required id="usuario" type="text" placeholder="Ingresa un nombre de administrador" class="form-control login-input">
+            <!-- <input required pattern="[A-Za-z0-9_-]{1,30}" id="usuario" type="text" placeholder="Ingresa un nombre de administrador" class="form-control login-input"> -->
+        </div>
+        
+        
+        <div class="login-div">
+            <label for="contrasenia" class="login-label">Contraseña:</label>
+            <input required id="contrasenia" type="password" placeholder="Ingresa la contraseña" class="form-control login-input">
+        </div>
+
+        <div class="login-div">
+            <input type="submit" class="form-control login-button" value="Iniciar Sesión" >
+        </div>
+
+    </form>
+
+</div>
+<script>
+    function regresarInicio() {
+        $('#contenido').load('../encuesta/Encuestas/Inicio.html');
+    }
+</script>
+<script src="../encuesta/Estadisticas/Login/Login.js"></script>
+

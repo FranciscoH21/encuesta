@@ -1,0 +1,106 @@
+
+.login{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+
+    margin-bottom: 5%;
+    width: 40%;
+    height: 640px;
+    min-height: 550px;
+    border:none;
+}
+
+@media only screen and (max-width : 1200px){    
+    .login{
+        height: 70%; 
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width : 800px){    
+    .login{
+        height: 80%;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width : 1200px){
+    .login{
+        height: 90vh;
+        width: 60%;
+    }
+}
+
+.login-img{
+    margin-left:25%;
+    width: 50%;
+    height: 50%;
+}
+
+.login-div{
+    margin:5%;
+}
+
+h1{font-size: 3vw;}
+
+.login-input{
+    width:80%;
+    margin:Auto;
+    border:0;
+    background:#F2F3F4;
+    color:black;
+    border-bottom:solid 1px black;
+    font-size: 2.5vh;
+}
+
+label{
+    font-size: 2.5vh;
+}
+
+.login-label{
+    margin-left:10%;
+}
+
+.login-button{
+    border:solid 1px black;
+    margin:Auto;
+    margin-top:10%;
+    margin-bottom:20%;
+    width: 60%;
+    color:white;
+    background:#1A5276;
+    font-size: 2vh;
+}
+
+.login-button:hover{
+    color:#1A5276;
+    background:white;
+}
+
+.error-login{
+    /* position:absolute; */
+    background: #A9253F;
+    font-weight: bold;
+    width: 60%;
+    margin-left:20%;
+    color:white;
+}
+/* 
+.Loading{
+    position: absolute;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;
+    width: 100%;
+    height: 100;
+    border:solid;
+} */
+
+.login-loading{
+    position: absolute;
+    border:solid pink;
+}

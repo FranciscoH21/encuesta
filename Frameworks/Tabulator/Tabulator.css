@@ -1,0 +1,11 @@
+
+.tabulator .tabulator-header .tabulator-col {
+    background-color: #2E5C85;
+    color: white;
+    font-size: 20px;
+}
+
+ .tabulator .tabulator-header .tabulator-col:hover {
+   background-color: white;
+   color: #2E5C85;
+}

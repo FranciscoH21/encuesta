@@ -1,0 +1,329 @@
+</html>
+
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+
+<script src="../encuesta/Frameworks/jquery-3.4.1.js"></script>
+<script src="../encuesta/Frameworks/popper.min.js"></script>
+<script src="../encuesta/Frameworks/bootstrap/bootstrap.min.js"></script>
+<!-- <script src="../encuesta/Frameworks/plotly-latest.min.js"></script> -->
+
+<script>
+  // - - - - - - - - - - -> ARREGLOS GLOBALES, AQUI GUARDA LAS RESPUESTAS
+
+  var ID;
+  var SEXO = "PRUEBA";
+  var EDAD = "PRUEBA";
+  var	EDOCV = "PRUEBA";
+  var	ANTI = "PRUEBA";
+  var	ESCO = "PRUEBA";
+  var	TURNO1 = "PRUEBA";
+  var	TURNO2 = "PRUEBA";
+  var	PLAZA = "PRUEBA";
+  var	DISCA = "PRUEBA";
+  var	SECTOR = "PRUEBA";
+
+  var EXTRAS = ["NULL","NULL","NULL","NULL"];
+
+  var Bloque1 = [0,0,0,0];
+  var Bloque2 = [0,0,0,0];
+  var Bloque3 = [0,0,0,0,0,0];
+  var Bloque4 = [0,0,0,0,0,0,0,0,0];
+  var Bloque5 = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  var Bloque6 = [0,0,0,0,0,0,0,0];
+  var Bloque7 = [0,0,0,0,0];
+  var Bloque8 = [0,0];
+  var Bloque9 = [0,0,0,0];
+  var promedios = [0,0,0,0,0,0,0,0,0,0];
+
+</script>
+
+
+<script>
+  // - - - - - - - - - - -> REVISA SI TODOS LOS CHECK ESTAN CORRECTOS O MANDA UN MENSAJE
+
+  function error(P,p){
+
+    divCont = document.getElementById(P);
+    checks  = divCont.getElementsByTagName('input');
+    aux = 0;
+
+    for ( i=0; i<checks.length; i++ ){
+
+      if(checks[i].checked == true){
+
+        $(p).hide();
+        return checks[i].value;
+
+      }else{
+        aux++;
+      }
+
+    }
+
+    if(aux == checks.length){
+
+      $(p).removeAttr("hidden");
+    }
+    return null;
+
+  }
+
+</script>
+
+<script>
+  // - - - - - - - - - - -> MENU DE BLOQUES
+
+  function mostras(Botton){
+
+    $('#'+Botton).removeAttr("hidden");
+  }
+
+</script>
+
+
+<style>
+  /*  - - - - - - - - - - -> ESTILO DEL HEADER */
+  body{
+    background:white;
+  }
+
+  h1{
+    font-weight: bold;
+  }
+
+  .linea{
+    background: rgba(241,111,92,0);
+    background: -moz-linear-gradient(left, rgba(241,111,92,0) 0%, rgba(248,218,94,1) 53%, rgba(248,218,94,0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241,111,92,0)), color-stop(53%, rgba(248,218,94,1)), color-stop(100%, rgba(248,218,94,0)));
+    background: -webkit-linear-gradient(left, rgba(241,111,92,0) 0%, rgba(248,218,94,1) 53%, rgba(248,218,94,0) 100%);
+    background: -o-linear-gradient(left, rgba(241,111,92,0) 0%, rgba(248,218,94,1) 53%, rgba(248,218,94,0) 100%);
+    background: -ms-linear-gradient(left, rgba(241,111,92,0) 0%, rgba(248,218,94,1) 53%, rgba(248,218,94,0) 100%);
+    background: linear-gradient(to right, rgba(241,111,92,0) 0%, rgba(248,218,94,1) 53%, rgba(248,218,94,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f16f5c', endColorstr='#f8da5e', GradientType=1 );
+    height: 10px;
+  }
+
+  .contenido{
+    margin:5% 5% 5% 5%;
+  }
+
+  hr{
+    background: black;
+  }
+
+
+  .botones-nav{
+    float: none;
+    width:100%;
+    margin-left: 50%;
+  }
+
+</style>
+
+<style>
+  /* - - - - - - - - - - -> ESTILOS DE LAS PREGUNTAS */
+
+  /* SOBRE ESCRIBIENDO LA CLASE CONTAINER */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* ESCONDIENDO EL CHECK DEFAULT */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* PERSONALIZANDO CHECK */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+  }
+
+  /* CAMBIO DE COLOR CHECK HOVER */
+  .container:hover input ~ .checkmark {
+    background:#ABB2B9;
+    /* border: solid 1px white; */
+    /* border-radius: 0%; */
+    /* transform: rotate(20deg); */
+  }
+
+  /* CAMBIO DE COLOR LABEL HOVER */
+  label:hover{
+    font-weight: bold;
+  }
+
+  /* CAMBIO DE COLOR CHECK AL DAR CHECKED */
+  .container input:checked ~ .checkmark {
+    background-color: #1B396B;
+  }
+
+  /* INDICARDOR CHECKET */
+  .container .checkmark:after {
+    left: 9px;
+    top: 6px;
+    width: 7px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  /* RETIRA CHECK AL CHECKET */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* MUESTRA INDICADOR CHECKET */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+</style>
+
+<style>
+  /* - - - - - - - - - - -> ESTILOS DEL DIV DE LAS PREGUNTAS */
+
+  /* DIESENO DE PREGUNTAS COL-5 */
+  .col-12{
+    /* background:#FAFAFA; */
+    background: #FEFEFE;
+    margin: 0% 5% 5% 0%;
+    border:solid 1px gray;
+    border-radius: 0%;
+
+  }
+
+  /* DISENO DEL HEADER */
+  .div-header, .div-header-xl{
+    border-radius: 10px 10px 0px 0px;
+    max-height: 35%;
+    min-height: 15%;
+    font-weight: bold;
+    text-align : justify;
+    padding:2%;
+
+  }
+
+  .div-header{
+    font-size: 30px;
+  }
+
+  .div-header-xl{
+    font-size: 25px;
+  }
+
+  /* DIESENO DE  DEL MENSAJE '!' ERROR (ERROR HEADER)*/
+  .Error{
+    border-radius: 100%;
+    position:absolute;
+    background:#A9253F;
+    color:white;
+    font-size:25px;
+    height: 40px;
+    width: 40px;
+    right:3%;
+    top:6%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  /* DIESENO DEL FOOTER DEL DIV */
+  .Error:hover{
+    /* border-radius: 10px 10px 10px 10px; */
+    border-radius: 0%;
+    transform: rotate(0deg);
+    width: 40%;
+    font-size:25px;
+    color:white;
+  }
+
+
+
+  /* DIESENO DE LA BARRA QUE SEPARA HEADER Y BODY */
+  hr{
+    /* border:solid 1px #A9253F; */
+    border:solid 2px #2E5C85;
+    border-radius:5px;
+    margin:0%;
+  }
+
+  /* DIESENO DEL BODY DEL DIV */
+  .div-body{
+    margin-top:1%;
+    max-height: 80%;
+    padding: 2%;
+    text-align : justify;
+  }
+
+
+
+  /* AQUI CAMBIA LA TAMANO DE FUENTE DEPENDIENDO LAS MEDIDAS DE LA PANTALLA*/
+  @media (max-width: 800px) {
+    .div-header { font-size: 20px; }
+    .div-header-xl { font-size: 16px; }
+
+    .div-footer{ font-size: 19px; padding:4%;}
+    .container{ font-size: 14px; }
+  }
+
+  @media (max-width: 600px) {
+    .div-header { font-size: 15px; }
+    .div-header-xl { font-size: 12px; }
+
+    .div-footer{ font-size: 14px; padding:5%;}
+    .container{ font-size: 12px; }
+  }
+
+  /* DIESENO DE LAS PREGUNTAS CON OPCION OTROS */
+  .Otro{
+    margin-left:10%;
+  }
+
+  /* DIESENO DE LOS INPUTS TYPE TEXT DEL MODULO OTROS */
+  .OtroInput{
+    width:80%;
+  }
+
+</style>
+
+<style>
+  /* - - - - - - - - - - -> ESTILOS DE BOTON SIGUIENTE */
+
+  .Next{
+    position:absolute;
+    right:8%;
+    margin-bottom:2%;
+    border:solid 1px black;
+    border-radius:100%;
+}
+</style>
+
+<style>
+  .TitleDiv{ border:solid; padding:2%; background:white; }
+</style>

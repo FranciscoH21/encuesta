@@ -1,0 +1,200 @@
+<div class="TitleDiv">
+    <h1 class="text-center">Formación y capacitación</h1>
+    <h2 class="text-center">Bloque 2 de 9</h2>
+</div>
+
+<div class="contenido">    
+    <div class="row ">
+            <div class="col-12" id="P5">
+
+                <div hidden class="Error" id="p5"> ! </div>
+                <div class="div-header">Pregunta 5</div>
+
+                <hr>  
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo las oportunidades de desarrollo laboral solo las reciben unas cuantas personas privilegiadas.
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="3" name="P5">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="2" name="P5">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="1" name="P5">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="0" name="P5">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="col-12" id="P6">
+
+                <div hidden class="Error" id="p6"> ! </div>
+                <div class="div-header">Pregunta 6</div>
+                
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo mujeres y hombres tienen por igual oportunidades de ascenso y capacitación.
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P6">
+                        <span class="checkmark"></sp>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P6">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P6">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P6">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+            <div class="col-12" id="P7">
+
+                <div hidden class="Error" id="p7"> ! </div>
+                <div class="div-header">Pregunta 7</div> 
+
+                <hr> 
+                
+                <div class="div-body">
+                    <p>
+                        En su centro de trabajo se cuenta con programas de capacitación en materia de igualdad laboral y no discriminación.
+                    </p>
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P7">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P7">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P7">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P7">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+            
+            <div class="col-12" id="P8">
+
+                <div hidden class="Error" id="p8"> ! </div>
+                <div class="div-header">Pregunta 8</div> 
+                <hr> 
+
+                <div class="div-body">
+                    <p>
+                        En los últimos 12 meses usted ha participado en programas de capacitación.
+                    </p>    
+
+                    <label class="container">Nunca
+                        <input class="form-check-input" type="radio" value="0" name="P8">
+                        <span class="checkmark"></label>
+                    </label>
+
+                    <label class="container">Algunas veces
+                        <input class="form-check-input" type="radio" value="1" name="P8">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Con frecuencia
+                        <input class="form-check-input" type="radio" value="2" name="P8">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label class="container">Siempre
+                        <input class="form-check-input" type="radio" value="3" name="P8">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+            </div>
+    </div>
+    
+</div>
+
+<button type="button" class="btn btn-success float-right m-4" onclick="revisar()">Siguiente </button>
+
+<script>
+        $(document).ready(function () {
+            $('.Error').hover( function(){
+                $(this).html("Escoge una opción");
+            },
+            function(){
+                $(this).html("!");
+            });
+        
+        });
+        </script>
+
+<script>
+
+function revisar(){
+    
+    contador = 0;
+
+    p5 = error('P5','#p5');
+    if(p5 != null){
+        contador++;
+    }
+
+    p6 = error('P6','#p6');
+    if(p6 != null){
+        contador++;
+    }
+
+    p7 = error('P7','#p7');
+    if(p7 != null){
+        contador++;
+    }
+
+    p8 = error('P8','#p8');
+    if(p8 != null){
+        contador++;
+    }
+
+    if(contador == 4){
+        Bloque2 = [parseInt(p5) , parseInt(p6) , parseInt(p7) , parseInt(p8)];
+        //alert(p5+' '+p6+' '+p7+' '+p8);
+        menu(3);
+    }else{ alert("Faltan preguntas por contestar"); window.scrollTo(0, 260); }
+}
+</script>

@@ -1,0 +1,55 @@
+
+<link rel="stylesheet" href="/encuesta/Frameworks/Tabulator/tabulator_semantic-ui.min.css"/>
+<link rel="stylesheet" href="/encuesta/Frameworks/Tabulator/Tabulator.css"/>
+ 
+<h2 class="">Estadísticas generales</h2>
+<div class="pos-f-t"> 
+    <div class="collapse in" id="collapseGeneraltable" >
+        <div class="p-3">
+            <div id="GeneralDataGlobal"></div>
+        </div>
+    </div>
+    <nav class="navbar" style="background: none">
+        <div id="GeneralData"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseGeneraltable">
+            <span><img src="/encuesta/image/list.png"></img></span><label class="m-2"> Tabla general </label>
+        </button>
+    </nav>
+</div>
+
+
+    <div class="row" style="margin-top: 5%">
+        <div class="col-10 align-self-start">
+            <button type="button" class="btn btn-primary" onclick="actualizarEstadisticas()">Actualizar estadísticas</button>
+            <button type="button" class="btn btn-success col-2" id="download-xlsx">Hoja de Calculo</button>
+            <!-- <button type="button" class="btn btn-warning col-2" id="download-pdf" style="color:white">Descarga PDF</button> -->
+            <!-- <button type="button" class="btn btn-secondary col-2" id="print-table">Imprimir</button> -->
+        </div>
+
+        <div class="col-2 align-self-end">
+            <button type="button" class="btn btn-danger col" onclick="confirmar()">Cerrar Sesión </button>
+        </div>
+    </div>
+
+<div style="border-bottom:solid 1px gray">
+    <div style="margin-top:1%;" id="GeneralTable"></div>
+</div>
+
+<div>
+    <h1 id="Bloque"></h1>
+    <div style="margin-top:5%;" id="Table"></div>
+</div>
+
+<p><b>prs:</b> personas encuestadas</p>
+<p><b>pts:</b> puntos por pregunta</p>
+
+<div hidden style="margin-top:5%;" id="ResTable"></div>
+<div hidden style="margin-top:5%;" id="Aux"></div>
+
+<script type="text/javascript" src="/encuesta/Frameworks/Tabulator/tabulator.min.js"></script>
+
+<script type="text/javascript" src="/encuesta/Frameworks/Tabulator/xlsx.full.min.js"></script>
+<script src="/encuesta/Frameworks/Tabulator/jspdf.min.js"></script>
+<script src="/encuesta/Frameworks/Tabulator/jspdf.plugin.autotable.js"></script>
+
+<script src="/encuesta/Estadisticas/Estadisticas/Estadisticas.js"></script>

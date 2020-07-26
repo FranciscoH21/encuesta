@@ -1,0 +1,115 @@
+<div class="TitleDiv">
+    <h1 class="text-center">Respeto a la diversidad</h1>
+    <h2 class="text-center">Bloque 8 de 9</h2>
+</div>
+<div class="contenido">
+    <div class="row ">
+        <div class="col-12" id="P51">
+
+            <div hidden class="Error" id="p51"> ! </div>
+            <div class="div-header">Pregunta 51</div>
+            <hr>
+
+            <div class="div-body">
+                <p>
+                    En su centro de trabajo hay un ambiente de respeto y no discriminación hacia las diferencias y preferencias sexuales.
+                </p>
+
+                <label class="container">Nunca
+                    <input class="form-check-input" type="radio" value="0" name="P51">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Algunas veces
+                    <input class="form-check-input" type="radio" value="1" name="P51">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Con frecuencia
+                    <input class="form-check-input" type="radio" value="2" name="P51">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Siempre
+                    <input class="form-check-input" type="radio" value="3" name="P51">
+                    <span class="checkmark"></span>
+                </label>
+            </div>  
+
+        </div>
+
+        <div class="col-12" id="P52">
+
+            <div hidden class="Error" id="p52"> ! </div>
+            <div class="div-header">Pregunta 52</div> 
+            <hr>
+
+            <div class="div-body">
+                <p>
+                    En su centro de trabajo ha sio testigo de actos discriminatorios por ser mujer u hombre, por edad, apariencia, discapacidad, entre otros.
+                </p>
+
+                <label class="container">Nunca
+                    <input class="form-check-input" type="radio" value="3" name="P52">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Algunas veces
+                    <input class="form-check-input" type="radio" value="2" name="P52">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Con frecuencia
+                    <input class="form-check-input" type="radio" value="1" name="P52">
+                    <span class="checkmark"></span>
+                </label>
+
+                <label class="container">Siempre
+                    <input class="form-check-input" type="radio" value="0" name="P52">
+                    <span class="checkmark"></span>
+                </label>
+            </div> 
+
+        </div>
+
+    </div>
+
+</div>
+
+<button type="button" class="btn btn-success float-right m-4" onclick="revisar()">Siguiente </button>
+
+<script>
+
+$(document).ready(function () {
+    $('.Error').hover( function(){
+        $(this).html("Escoge una opción");
+    },
+    function(){
+        $(this).html("!");
+    });
+
+});
+    // mostras("MenuBloque7");
+    // console.log("Bloque7 = "+Bloque7[0]+" , "+Bloque7[1]+" , "+Bloque7[2]+" , "+Bloque7[3]+" , "+Bloque7[4]);
+
+function revisar(){
+    
+    contador = 0;
+
+    p51 = error('P51','#p51');
+    if(p51 != null){
+        contador++;
+    }
+
+    p52 = error('P52','#p52');
+    if(p52 != null){
+        contador++;
+    }
+
+    if(contador == 2){
+        Bloque8 = [parseInt(p51) , parseInt(p52)];
+        //alert(p51+' '+p52);
+        menu(9);
+    }else{ alert("Faltan preguntas por contestar"); window.scrollTo(0, 260); }
+}
+</script>
