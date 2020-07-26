@@ -2,11 +2,11 @@
 Web to do quality surveys.
 
 ### DEVELOPMENT
--HTML and CSS
--JavaScript
--PHP
--MySQL
+- HTML and CSS
+- JavaScript
+- PHP
+- MySQL
 
 ### TEAM
--Francisco Becerra
--Francisco Hernández
+- Francisco Becerra
+- Francisco Hernández
